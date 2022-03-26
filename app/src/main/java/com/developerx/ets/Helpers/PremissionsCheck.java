@@ -6,7 +6,9 @@ import android.content.pm.PackageManager;
 public class PremissionsCheck {
 
     public  Boolean hardwareCheck(Context context){
-        return  true;
+
+        
+
     }
 
 
