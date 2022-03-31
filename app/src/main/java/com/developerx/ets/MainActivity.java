@@ -12,7 +12,10 @@ import androidx.core.content.ContextCompat;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
+
+import com.developerx.ets.Helpers.PermissionManager;
 
 public class MainActivity extends AppCompatActivity {
     private static final int RequestPermissionCode =7;
@@ -20,10 +23,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (!PermissionCheck()) {
-            requestPermission();
+        PermissionManager permissionManager = new PermissionManager(this);
+        if(permissionManager.verifyPermissions()){
+            setContentView(R.layout.activity_main);
+        }else {
+            permissionManager.getPermission();
         }
+
+
+//        if (!PermissionCheck()) {
+//            requestPermission();
+//        }
 
         setContentView(R.layout.activity_main);
 
@@ -64,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         return FirstPermissionResult == PackageManager.PERMISSION_GRANTED &&
                 SecondPermissionResult == PackageManager.PERMISSION_GRANTED &&
                 ThirdPermissionResult == PackageManager.PERMISSION_GRANTED &&
-                FirstPermissionResult == PackageManager.PERMISSION_GRANTED;
+                FourthPermissionResult == PackageManager.PERMISSION_GRANTED;
     }
 
 
