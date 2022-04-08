@@ -3,6 +3,8 @@ plugins {
     id 'com.chaquo.python'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 android {
     compileSdk 31
     defaultConfig {
@@ -19,7 +21,7 @@ android {
         }
 
         python {
-            buildPython "C:/Users/zaeem/AppData/Local/Programs/Python/Python310/python.exe"
+            buildPython properties.getProperty("pythonDir")
             pip{
                 install "deepface"
             }
@@ -42,6 +44,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
