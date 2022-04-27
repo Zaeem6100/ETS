@@ -21,7 +21,7 @@ android {
         }
 
         python {
-            buildPython properties.getProperty("pythonDir")
+            buildPython properties.getProperty('pythonDir')
             pip{
                 install "deepface"
             }
