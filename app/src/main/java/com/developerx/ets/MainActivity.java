@@ -12,18 +12,33 @@ import androidx.core.content.ContextCompat;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.chaquo.python.PyException;
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
 
 public class MainActivity extends AppCompatActivity {
     private static final int RequestPermissionCode =7;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!PermissionCheck()) {
-            requestPermission();
+//        if (!PermissionCheck()) {
+//            requestPermission();
+//        }
+        if(!Python.isStarted()){
+            Python.start(new AndroidPlatform(getApplicationContext()));
         }
+        Python py = Python.getInstance();
+        PyObject pyFunc = py.getModule("faceverify");
+        String hello = pyFunc.callAttr("helloworld").toString();
+        textView = findViewById(R.id.textView);
+        textView.setText(hello);
 
         setContentView(R.layout.activity_main);
 
