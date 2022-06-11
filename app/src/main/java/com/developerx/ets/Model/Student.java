@@ -1,29 +1,16 @@
 package com.developerx.ets.Model;
 
 public class Student {
-    private  String CNIC;
-    private  String Name;
-    private  String F_name;
-    private String DOB;
-    private String Gender;
-    private String Institute;
+    private String CNIC;
+    private String Name;
+    private String Password;
+    private  String Image;
 
-    public Student(String CNIC, String name, String f_name, String DOB, String gender, String institute) {
+    public Student(String CNIC, String name, String password , String image) {
         this.CNIC = CNIC;
         Name = name;
-        F_name = f_name;
-        this.DOB = DOB;
-        Gender = gender;
-        Institute = institute;
-    }
-
-    public Student() {
-        this.CNIC =null;
-        Name =null;
-        F_name =null;
-        this.DOB =null;
-        Gender =null;
-        Institute =null;
+        Password = password;
+        Image = image;
     }
 
     public String getCNIC() {
@@ -42,35 +29,19 @@ public class Student {
         Name = name;
     }
 
-    public String getF_name() {
-        return F_name;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setF_name(String f_name) {
-        F_name = f_name;
+    public void setPassword(String password) {
+        Password = password;
     }
 
-    public String getDOB() {
-        return DOB;
+    public String getImage() {
+        return Image;
     }
 
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
-    }
-
-    public String getGender() {
-        return Gender;
-    }
-
-    public void setGender(String gender) {
-        Gender = gender;
-    }
-
-    public String getInstitute() {
-        return Institute;
-    }
-
-    public void setInstitute(String institute) {
-        Institute = institute;
+    public void setImage(String image) {
+        Image = image;
     }
 }

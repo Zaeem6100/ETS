@@ -1,7 +1,6 @@
 package com.developerx.ets.Adaptor;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,15 +8,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.developerx.ets.Model.Student;
+import com.developerx.ets.Model.QuestionModel;
 import com.developerx.ets.R;
 
 import java.util.List;
 
 public class QuestionAdaptor extends RecyclerView.Adapter<QuestionAdaptor.ViewHolder> {
-    private List<Student> studentList ;
+    private List<QuestionModel> Questionlist;
     private Activity QuestionActivity;
-
+//Todo question adaptor class
     public QuestionAdaptor(Activity activity) {
         this.QuestionActivity=activity;
     }
@@ -31,12 +30,11 @@ public class QuestionAdaptor extends RecyclerView.Adapter<QuestionAdaptor.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
     }
 
     @Override
     public int getItemCount() {
-        return studentList.size();
+        return Questionlist.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

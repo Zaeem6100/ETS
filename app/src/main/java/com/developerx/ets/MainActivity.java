@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -31,16 +32,18 @@ public class MainActivity extends AppCompatActivity {
 //        if (!PermissionCheck()) {
 //            requestPermission();
 //        }
-        if(!Python.isStarted()){
-            Python.start(new AndroidPlatform(getApplicationContext()));
-        }
-        Python py = Python.getInstance();
-        PyObject pyFunc = py.getModule("faceverify");
-        String hello = pyFunc.callAttr("helloworld").toString();
-        textView = findViewById(R.id.textView);
-        textView.setText(hello);
-
+//        if(!Python.isStarted()){
+//            Python.start(new AndroidPlatform(getApplicationContext()));
+//        }
+//        Python py = Python.getInstance();
+//        PyObject pyFunc = py.getModule("faceverify");
+//        String hello = pyFunc.callAttr("helloworld").toString();
+////        textView = findViewById(R.id.textView);
+////        textView.setText(hello);
         setContentView(R.layout.activity_main);
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+
 
 
     }
